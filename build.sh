@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t jbbarth/redmine .
+docker build --no-cache -t jbbarth/redmine .
