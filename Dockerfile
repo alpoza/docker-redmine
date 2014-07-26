@@ -15,7 +15,7 @@ RUN service postgresql start; sudo -u postgres createuser --no-createdb --no-sup
 RUN mkdir /app
 WORKDIR /app
 RUN git clone https://github.com/jbbarth/redmine-scripts
-RUN /app/redmine-scripts/core_download.sh; mv redmine-2.5.1-blank redmine
+RUN /app/redmine-scripts/core_download.sh REDMINE_2_5_2; mv redmine-2.5.2-blank redmine
 RUN echo "production:\n  adapter: postgresql\n  database: redmine\n  username: redmine\n  password: \n  pool: 10\n\ndevelopment:\n  adapter: postgresql\n  database: redmine\n  username: redmine\n  password: " > /app/redmine/config/database.yml
 RUN service postgresql start; /app/redmine-scripts/core_install.sh /app/redmine
 
